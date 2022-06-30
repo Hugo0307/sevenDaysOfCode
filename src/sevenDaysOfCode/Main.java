@@ -77,8 +77,8 @@ public class Main {
 			int indexTwoPoints = jsonArray[i].indexOf(":", lastIndexkey);
 			int indexStartValue = indexTwoPoints + 2;
 			int indexQuotes = jsonArray[i].indexOf("\"", indexStartValue);
-			String titleValue = jsonArray[i].substring(indexStartValue, indexQuotes);
-			listValues.add(titleValue);
+			String valueAttribute = jsonArray[i].substring(indexStartValue, indexQuotes);
+			listValues.add(valueAttribute);
 		}
 		return listValues;
 	}
