@@ -12,3 +12,6 @@
 
 #
 
+## third day - 01/07/2022
+
+***Neste desafio do terceiro dia, criei um modelo de classe de domínio utilizando da Record Classes, que são um tipo especial de classes, incorporada ao Java 14, que nos permite simplificar em uma linha de código a criação de uma classe com seus atributos, métodos getters, equals e hashCode e toString. É, observe que não mencionei os setters, porque na classe Record, os atributos são final, o que significa que a classe Record se destina a servir como um simples "portador de dados", em outras palavras é imutável. Então optei por utilizar a classe Record, porque além de deixar o código mais elegante, diminuir código boilerplate, no final das contas só quero realizar a leitura dos dados da lista de filmes que criei para comportar os atributos do filme.***

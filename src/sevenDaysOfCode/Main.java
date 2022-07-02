@@ -19,29 +19,31 @@ public class Main {
 	public static void main(String[] args) throws IOException, InterruptedException {
 
 		APIKEY = JOptionPane.showInputDialog("Digite a chave da api IMDb");
-
 		String json = requestDataMovies(URLBASE, APIKEY);
-
 		String[] jsonArray = parseJson(json);
-
-		/* INICIO - Listas obtidas dos valores dos atributos title, image, year e rating */
+		
+		newListMovies(jsonArray).forEach(System.out::println);
+	}
+	
+	/* Obtendo as listas dos atributos title, image, year, imDbRating e adicionando a uma lista de filmes */
+	private static List<Movie> newListMovies(String[] jsonArray) {
 		List<String> listTitleMovies = newList(jsonArray, "title");
-		listTitleMovies.forEach(System.out::println);
-
 		List<String> listUrlImagesMovies = newList(jsonArray, "image");
-		listUrlImagesMovies.forEach(System.out::println);
-
 		List<String> listYearMovies = newList(jsonArray, "year");
-		listYearMovies.forEach(System.out::println);
-
 		List<String> listImDbRatingMovies = newList(jsonArray, "imDbRating");
-		listImDbRatingMovies.forEach(System.out::println);
-		/* FIM - Listas obtidas dos valores dos atributos title, image, year e rating */
+		
+		List<Movie> movies = new ArrayList<>();
+		int cont = 0;
+		while (cont < jsonArray.length) {
+			movies.add(new Movie(listTitleMovies.get(cont), listUrlImagesMovies.get(cont), listYearMovies.get(cont),
+					listImDbRatingMovies.get(cont)));
+			cont++;
+		}
+		return movies;
 	}
 
-	/* Realizando a requisição e obtendo o json dos top 250 filmes do imdb*/
+	/* Realizando a requisição e obtendo o json dos top 250 filmes do imdb */
 	private static String requestDataMovies(String urlApi, String apiKey) throws IOException, InterruptedException {
-
 		HttpRequest httpRequest = HttpRequest.newBuilder().uri(URI.create(urlApi + apiKey)).GET().build();
 
 		HttpResponse<String> response = HttpClient.newHttpClient().send(httpRequest, BodyHandlers.ofString());
