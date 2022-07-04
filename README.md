@@ -12,6 +12,12 @@
 
 #
 
-## third day - 01/07/2022
+## Third day - 01/07/2022
 
 ***Neste desafio do terceiro dia, criei um modelo de classe de domínio utilizando da Record Classes, que são um tipo especial de classes, incorporada ao Java 14, que nos permite simplificar em uma linha de código a criação de uma classe com seus atributos, métodos getters, equals e hashCode e toString. É, observe que não mencionei os setters, porque na classe Record, os atributos são final, o que significa que a classe Record se destina a servir como um simples "portador de dados", em outras palavras é imutável. Então optei por utilizar a classe Record, porque além de deixar o código mais elegante, diminuir código boilerplate, no final das contas só quero realizar a leitura dos dados da lista de filmes que criei para comportar os atributos do filme.***
+
+#
+
+## Fourth day
+
+***Neste quarto dia do desafio, criei uma classe que gera o HTML com o do uso dos Text Blocks (Blocos de Texto) incorporado ao Java 15. Nele descrevi o corpo do HTML com as devidas informações que quis que fossem renderizadas no browser e no método de execução criei uma nova instância da classe PrintWriter passando como parâmetro o nome do arquivo .html que desejo onde seja gravado o que escrevi usando o text blocks, e ele gera automaticamente um arquivo com o nome e extensão que passei como parâmetro. Daí foi só abrir o arquivo gerado para visualizar no browser. O uso da escrita do HTML no Java foi intencional do desafio, mesmo não sendo uma boa prática, foi feito para trabalharmos um pouco mais de POO e a utilização de features incorporadas ao Java nas últimas versões.***

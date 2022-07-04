@@ -1,6 +1,7 @@
 package sevenDaysOfCode;
 
 import java.io.IOException;
+import java.io.PrintWriter;
 import java.net.URI;
 import java.net.http.HttpClient;
 import java.net.http.HttpRequest;
@@ -8,7 +9,6 @@ import java.net.http.HttpResponse;
 import java.net.http.HttpResponse.BodyHandlers;
 import java.util.ArrayList;
 import java.util.List;
-
 import javax.swing.JOptionPane;
 
 public class Main {
@@ -22,7 +22,9 @@ public class Main {
 		String json = requestDataMovies(URLBASE, APIKEY);
 		String[] jsonArray = parseJson(json);
 		
-		newListMovies(jsonArray).forEach(System.out::println);
+		PrintWriter writer = new PrintWriter("content.html");
+		new HtmlGenerator(writer).generate(newListMovies(jsonArray));
+		writer.close();
 	}
 	
 	/* Obtendo as listas dos atributos title, image, year, imDbRating e adicionando a uma lista de filmes */
