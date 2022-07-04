@@ -3,6 +3,11 @@ package sevenDaysOfCode;
 import java.io.PrintWriter;
 import java.util.List;
 
+/**
+ * Classe responsável por gerar o html para renderizar a lista de filmes
+ * @author Hugo Almeida
+ * @since 07/2022
+ */
 public class HtmlGenerator {
 
 	private final PrintWriter printWriter;
@@ -11,6 +16,10 @@ public class HtmlGenerator {
 		this.printWriter = writer;
 	}
 
+	/**
+	 * Método responsável por gerar o html através de text blocks
+	 * @param movies
+	 */
 	public void generate(List<Movie> movies) {
 		printWriter.println(
 	"""
@@ -46,3 +55,4 @@ public class HtmlGenerator {
 		""");
 	}
 }
+
