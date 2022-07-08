@@ -8,7 +8,7 @@ import java.util.List;
  * @author Hugo Almeida
  * @since 07/2022
  */
-public class ImdbMovieJsonParser {
+public class ImdbMovieJsonParser implements JsonParser {
 	
 	private String json;
 	
@@ -21,7 +21,8 @@ public class ImdbMovieJsonParser {
 	 * Método responsável por criar uma lista de filmes com as listas dos atributos
 	 * @return lista de filmes 
 	 */
-	public List<Movie> getListMovies() {
+	@Override
+	public List<? extends Content> parse() {
 		
 		parseJson();
 		

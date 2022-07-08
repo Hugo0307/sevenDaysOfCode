@@ -9,13 +9,19 @@ public class Main {
 
 	public static void main(String[] args) throws IOException, InterruptedException {
 
-		String apiKey = JOptionPane.showInputDialog("Digite a chave da api IMDb");
+//		String apiKey = JOptionPane.showInputDialog("Digite a chave da api IMDb");
+//		
+//		String json = new ImdbApiClient(apiKey).getBody();
+//		
+//		PrintWriter writer = new PrintWriter("content.html");
+//		new HtmlGenerator(writer).generate(new ImdbMovieJsonParser(json).parse());
+//		writer.close();
 		
-		String json = new ImdbApiClient(apiKey).getBody();
+//		new ImdbMovieJsonParser(json).parse().forEach(System.out::println);
 		
-		PrintWriter writer = new PrintWriter("content.html");
-		new HtmlGenerator(writer).generate(new ImdbMovieJsonParser(json).getListMovies());
-		writer.close();
+		String jsonMarvelString = new marvelApiClient().getBody();
+		
+		System.out.println(jsonMarvelString.substring(0, 2000));
 		
 	}
 	

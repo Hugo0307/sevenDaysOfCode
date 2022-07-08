@@ -27,7 +27,7 @@ public class ImdbApiClient {
 	 * @throws InterruptedException
 	 */
 	public String getBody() throws IOException, InterruptedException {
-		String urlApi = "https://imdb-api.com/en/API/Top250Movies/";
+		String urlApi = "https://imdb-api.com/en/API/Top250TVs/";
 		
 		HttpRequest httpRequest = HttpRequest.newBuilder().uri(URI.create(urlApi + apiKey)).GET().build();
 

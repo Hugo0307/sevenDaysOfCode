@@ -18,9 +18,9 @@ public class HtmlGenerator {
 
 	/**
 	 * Método responsável por gerar o html através de text blocks
-	 * @param movies
+	 * @param list
 	 */
-	public void generate(List<Movie> movies) {
+	public void generate(List<? extends Content> list) {
 		printWriter.println(
 	"""
 	<html>
@@ -34,7 +34,7 @@ public class HtmlGenerator {
 		<body>
 	""");
 
-		for (Movie movie : movies) {
+		for (Content content : list) {
 			String divTemplate =
 			"""
 			<div class=\"card text-white bg-dark mb-3\" style=\"max-width: 18rem;\">
@@ -45,7 +45,7 @@ public class HtmlGenerator {
 				</div>
 			</div>
 			""";
-			printWriter.println(String.format(divTemplate, movie.title(), movie.urlImage(), movie.title(), movie.rating(), movie.year()));
+			printWriter.println(String.format(divTemplate, content.title(), content.urlImage(), content.title(), content.rating(), content.year()));
 		}
 				
 		printWriter.println(
