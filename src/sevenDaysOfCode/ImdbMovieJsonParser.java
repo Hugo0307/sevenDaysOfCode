@@ -22,7 +22,7 @@ public class ImdbMovieJsonParser implements JsonParser {
 	 * @return lista de filmes 
 	 */
 	@Override
-	public List<? extends Content> parse() {
+	public List<Movie> parse() {
 		
 		parseJson();
 		

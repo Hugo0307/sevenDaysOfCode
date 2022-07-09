@@ -29,7 +29,7 @@ public class marvelApiClient implements APIClient{
 		
 		HttpRequest httpRequest = HttpRequest.newBuilder()
 				.GET()
-				.uri(URI.create(String.format("https://gateway.marvel.com/v1/public/characters?ts=%s&hash=%s&apikey=%s", ts, hash, apikey)))
+				.uri(URI.create(String.format("https://gateway.marvel.com/v1/public/series?ts=%s&hash=%s&apikey=%s", ts, hash, apikey)))
 				.build();
 		
 		HttpResponse<String> response = null;

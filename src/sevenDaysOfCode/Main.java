@@ -21,6 +21,8 @@ public class Main {
 		
 		String jsonMarvelString = new marvelApiClient().getBody();
 		
+		new MarvelJsonParser(jsonMarvelString).parse();
+		
 		System.out.println(jsonMarvelString.substring(0, 2000));
 		
 	}
