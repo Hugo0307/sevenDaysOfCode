@@ -15,12 +15,10 @@ public class marvelApiClient implements APIClient{
 	public String getBody() {
 		
 		String ts = String.valueOf(System.currentTimeMillis());
-		String apikey = "239e9d84cfdfaeb54a70d3424c6389e7";
-		String hashString = "e3b6fa7e170c07114507039c8d8d690a74031d6d";
 		String hash = "";
 		try {
 			MessageDigest messageDigest = MessageDigest.getInstance("MD5");
-			BigInteger hashBytes = new BigInteger(1, messageDigest.digest(ts.concat(hashString).concat(apikey).getBytes()));
+			BigInteger hashBytes = new BigInteger(1, messageDigest.digest(ts.concat(Utils.getPrivateKeyMarvel()).concat(Utils.getPublicKeyMarvel()).getBytes()));
 			hash = hashBytes.toString(16);
 			
 		} catch (NoSuchAlgorithmException e) {
@@ -29,7 +27,7 @@ public class marvelApiClient implements APIClient{
 		
 		HttpRequest httpRequest = HttpRequest.newBuilder()
 				.GET()
-				.uri(URI.create(String.format("https://gateway.marvel.com/v1/public/series?ts=%s&hash=%s&apikey=%s", ts, hash, apikey)))
+				.uri(URI.create(String.format("https://gateway.marvel.com/v1/public/series?ts=%s&hash=%s&apikey=%s", ts, hash, Utils.getPublicKeyMarvel())))
 				.build();
 		
 		HttpResponse<String> response = null;
