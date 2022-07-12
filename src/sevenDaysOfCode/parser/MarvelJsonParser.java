@@ -1,9 +1,12 @@
-package sevenDaysOfCode;
+package sevenDaysOfCode.parser;
 
 import java.util.ArrayList;
 import java.util.List;
 import java.util.regex.Matcher;
 import java.util.regex.Pattern;
+
+import sevenDaysOfCode.domain.Serie;
+import sevenDaysOfCode.interfaces.JsonParser;
 
 public class MarvelJsonParser implements JsonParser {
 
@@ -23,9 +26,8 @@ public class MarvelJsonParser implements JsonParser {
 		for (int i = 0; i < array.length; i++) {
 			series.add(new Serie(parseTitle(array[i]), parseUrlImage(array[i]), parseRating(array[i]),
 					parseYear(array[i])));
-			series.forEach(System.out::println);
 		}
-		return null;
+		return series;
 	}
 
 	private String parseTitle(String lineJson) {

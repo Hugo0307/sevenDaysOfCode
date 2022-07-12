@@ -1,7 +1,10 @@
-package sevenDaysOfCode;
+package sevenDaysOfCode.parser;
 
 import java.util.ArrayList;
 import java.util.List;
+
+import sevenDaysOfCode.domain.Movie;
+import sevenDaysOfCode.interfaces.JsonParser;
 
 /**
  * Classe responsável por receber json da api externa, tratar os dados e devolver uma lista de filmes

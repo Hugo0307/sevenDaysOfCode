@@ -1,4 +1,6 @@
-package sevenDaysOfCode;
+package sevenDaysOfCode.domain;
+
+import sevenDaysOfCode.interfaces.Content;
 
 public record Movie (String title, String urlImage, String year, String rating) implements Content{
 

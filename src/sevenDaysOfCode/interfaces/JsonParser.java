@@ -1,4 +1,4 @@
-package sevenDaysOfCode;
+package sevenDaysOfCode.interfaces;
 
 import java.util.List;
 

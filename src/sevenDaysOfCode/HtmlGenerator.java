@@ -3,6 +3,8 @@ package sevenDaysOfCode;
 import java.io.PrintWriter;
 import java.util.List;
 
+import sevenDaysOfCode.interfaces.Content;
+
 /**
  * Classe responsável por gerar o html para renderizar a lista de filmes
  * @author Hugo Almeida
