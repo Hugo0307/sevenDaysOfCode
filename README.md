@@ -33,3 +33,15 @@
 ## Sixth day - 08/07/2022
 
 ***Neste 6º dia de desafio criei as interfaces para deixar meu código mais genérico de forma que pode receber dados vindo de  outras API's. Com as interfaces posso realizar implementações diferentes. Para isso criei uma interface com atributos que servem de base para formalizar como um contrato qual o conteúdo que será extraído do corpo da resposta da requisição feita às API's. Criei também uma interface contendo um método parse() que servirá para cada API implementar de forma diferente a fim de realizar o parse dos dados obtidos no JSON da API em questão. Além disso organizei a estrutura do projeto separando as classses semelhantes em pacotes. Criei também uma classe UTIL onde guardei em métodos, as chaves de acesso que uso para as API's, e que claro, não está aqui no repositório remoto.***
+
+#
+
+## Seventh day - 12/07/2022
+
+***Neste 7º e último dia do desafio, alterei os modelos para me possibilitar ordenar as listas de acordo com o atributo que eu quiser. Para isso na minha interface Content extendi da interface Comparable para possibilitar através da sobrescrita do método compareTo(), criar a ordem natural para a lista. Usei também o método comparing() para ordenar a lista de acordo com o método do atributo que quis, usando method references.***
+
+#
+
+## Nota final:
+
+*Foram muito proveitosos estes dias de desafio, pude aprender, rever e praticar bastante coisa. Hoje 13/07/2022 dou o desafio como concluído, contudo vou ainda revisitar este código e melhorá-lo ainda mais, buscar alternativas de implementação, deixá-lo mais conciso e coeso. Sempre há o que melhorar e onde se aperfeiçoar!*
