@@ -1,4 +1,4 @@
-package sevenDaysOfCode;
+package sevenDaysOfCode.view;
 
 import java.io.PrintWriter;
 import java.util.List;

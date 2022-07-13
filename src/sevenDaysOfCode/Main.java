@@ -8,6 +8,7 @@ import sevenDaysOfCode.apiClient.marvelApiClient;
 import sevenDaysOfCode.parser.ImdbMovieJsonParser;
 import sevenDaysOfCode.parser.MarvelJsonParser;
 import sevenDaysOfCode.utils.KeysUtils;
+import sevenDaysOfCode.view.HtmlGenerator;
 
 public class Main {
 

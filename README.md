@@ -27,3 +27,9 @@
 ## Fifth day - 03/07/2022
 
 ***Neste 5º dia de desafio proposto apliquei uma das boas práticas de refatoração que é o encapsulamento, ocultando a implementação do código, regras de negócio, para que não seja visível a quem deseja usar a rotina, apenas chame o método que executará a rotina desejada. Dessa forma também fica mais fácil a manutenção do código, uma vez que não será necessário alterar em vários lugares, mas somente naquela classe, método onde está implementado e todos que usam a rotina se beneficiará da mudança. Também dessa forma posso distribuir as responsabilidades, cada qual com sua responsabilidade. Por fim, o uso do encapsulamento também nos beneficia com a reutilização de código.***
+
+#
+
+## Sixth day - 08/07/2022
+
+***Neste 6º dia de desafio criei as interfaces para deixar meu código mais genérico de forma que pode receber dados vindo de  outras API's. Com as interfaces posso realizar implementações diferentes. Para isso criei uma interface com atributos que servem de base para formalizar como um contrato qual o conteúdo que será extraído do corpo da resposta da requisição feita às API's. Criei também uma interface contendo um método parse() que servirá para cada API implementar de forma diferente a fim de realizar o parse dos dados obtidos no JSON da API em questão. Além disso organizei a estrutura do projeto separando as classses semelhantes em pacotes. Criei também uma classe UTIL onde guardei em métodos, as chaves de acesso que uso para as API's, e que claro, não está aqui no repositório remoto.***
