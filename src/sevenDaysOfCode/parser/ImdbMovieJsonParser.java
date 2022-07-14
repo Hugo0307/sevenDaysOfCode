@@ -15,11 +15,15 @@ public class ImdbMovieJsonParser implements JsonParser {
 	
 	private String json;
 	
+	/**
+	 * O construtor ImdbMovieJsonParser recebendo argumento tipado como string inicializa a variável 
+	 * de instância com o valor do argumento recebido.
+	 * @param json o corpo da resposta da requisição feita à API
+	 */
 	public ImdbMovieJsonParser(String json) {
 		this.json = json;
 	}
 	
-	/* Obtendo as listas dos atributos title, image, year, imDbRating e adicionando a uma lista de filmes */
 	/**
 	 * Método responsável por criar uma lista de filmes com as listas dos atributos
 	 * @return lista de filmes 
@@ -46,8 +50,8 @@ public class ImdbMovieJsonParser implements JsonParser {
 
 	/**
 	 * Método responsável por buscar no json todos os values de determinado atributo e os atribui a uma lista
-	 * @param jsonArray
-	 * @param keyAttribute
+	 * @param jsonArray o array de string após parse do json recebido da API
+	 * @param keyAttribute o nome do atributo
 	 * @return lista de string de values do atributo chave passado como parâmetro
 	 */
 	private List<String> newListAtributes(String[] jsonArray, String keyAttribute) {

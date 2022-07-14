@@ -26,9 +26,10 @@ public class Main {
 		System.out.println("===== IMDB - Ordenação de inserção =====");
 		movieList.forEach(System.out::println);
 		
-		Collections.sort(movieList);
-		//Collections.sort(contentList, Comparator.comparing(Content::title));
-		//Collections.sort(contentList, Comparator.comparing(Content::year));
+		//Collections.sort(movieList);
+		//Collections.sort(movieList, Comparator.comparing(Content::title));
+		//Collections.sort(movieList, Comparator.comparing(Content::year));
+		Collections.sort(movieList, Comparator.comparing(c -> c.year()));
 		
 		System.out.println("===== IMDB - Ordenação natural =====");
 		movieList.forEach(System.out::println);
@@ -45,8 +46,8 @@ public class Main {
 		System.out.println("===== Series da Marvel - Ordenação de inserção =====");
 		seriesList.forEach(System.out::println);
 		
-		//Collections.sort(contentList);
-		//Collections.sort(contentList, Comparator.comparing(Content::title));
+		//Collections.sort(seriesList);
+		//Collections.sort(seriesList, Comparator.comparing(Content::title));
 		Collections.sort(seriesList, Comparator.comparing(Content::year));
 		
 		System.out.println("===== Series da Marvel - Ordenação natural =====");
