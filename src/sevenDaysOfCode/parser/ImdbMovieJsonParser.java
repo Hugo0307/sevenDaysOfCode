@@ -7,7 +7,7 @@ import sevenDaysOfCode.domain.Movie;
 import sevenDaysOfCode.interfaces.JsonParser;
 
 /**
- * Classe responsável por receber json da api externa, tratar os dados e devolver uma lista de filmes
+ * Classe responsável por receber json da api externa, tratar os dados e devolver uma lista de filmes.
  * @author Hugo Almeida
  * @since 07/2022
  */
@@ -16,7 +16,7 @@ public class ImdbMovieJsonParser implements JsonParser {
 	private String json;
 	
 	/**
-	 * O construtor ImdbMovieJsonParser recebendo argumento tipado como string inicializa a variável 
+	 * O construtor ImdbMovieJsonParser recebendo argumento tipado como <code>string</code> inicializa a variável 
 	 * de instância com o valor do argumento recebido.
 	 * @param json o corpo da resposta da requisição feita à API
 	 */
@@ -25,7 +25,7 @@ public class ImdbMovieJsonParser implements JsonParser {
 	}
 	
 	/**
-	 * Método responsável por criar uma lista de filmes com as listas dos atributos
+	 * Método responsável por criar uma lista de filmes com as listas dos atributos.
 	 * @return lista de filmes 
 	 */
 	@Override
@@ -50,9 +50,9 @@ public class ImdbMovieJsonParser implements JsonParser {
 
 	/**
 	 * Método responsável por buscar no json todos os values de determinado atributo e os atribui a uma lista
-	 * @param jsonArray o array de string após parse do json recebido da API
+	 * @param jsonArray o array de <code>string</code> após parse do json recebido da API
 	 * @param keyAttribute o nome do atributo
-	 * @return lista de string de values do atributo chave passado como parâmetro
+	 * @return lista de <code>string</code> de values do atributo chave passado como parâmetro
 	 */
 	private List<String> newListAtributes(String[] jsonArray, String keyAttribute) {
 
@@ -71,7 +71,7 @@ public class ImdbMovieJsonParser implements JsonParser {
 	
 	/**
 	 * Método responsável por realizar parse do json recebido da api externa
-	 * @return array de string sem colchetes, chaves e virgulas entre as chaves
+	 * @return array de <code>string</code> sem colchetes, chaves e virgulas entre as chaves
 	 */
 	private String[] parseJson() {
 		

@@ -18,7 +18,7 @@ public class MarvelJsonParser implements JsonParser {
 	private String jsonString;
 
 	/**
-	 * O construtor MarvelJsonParser recebendo argumento tipado como string inicializa a variável de
+	 * O construtor MarvelJsonParser recebendo argumento tipado como <code>string</code> inicializa a variável de
 	 * instância com o valor do argumento recebido.
 	 * @param jsonString o json obtido no corpo da resposta da requisição feita à API
 	 */
@@ -47,7 +47,7 @@ public class MarvelJsonParser implements JsonParser {
 	/**
 	 * Método responsável por realizar o parse do atributo title
 	 * @param lineJson
-	 * @return value do atributo title
+	 * @return <code>string</code> com value do atributo title
 	 */
 	private String parseTitle(String lineJson) {
 		return parseAttribute(lineJson, "title");
@@ -56,7 +56,7 @@ public class MarvelJsonParser implements JsonParser {
 	/**
 	 * Método responsável por realizar o parse do atributo urlImage e adicionar a extensão
 	 * @param lineJson
-	 * @return value do atributo urlImage com extensão
+	 * @return <code>string</code> com value do atributo urlImage com extensão
 	 */
 	private String parseUrlImage(String lineJson) {
 
@@ -69,7 +69,7 @@ public class MarvelJsonParser implements JsonParser {
 	/**
 	 * Método responsável por recuperar a extensão da url da imagem da série
 	 * @param lineJson
-	 * @return value da extensão do atributo extension
+	 * @return <code>string</code> com value da extensão do atributo extension
 	 */
 	private String getExtUrlImage(String lineJson) {
 		return parseAttribute(lineJson, "extension").trim();
@@ -78,7 +78,7 @@ public class MarvelJsonParser implements JsonParser {
 	/**
 	 * Método responsável por realizar o parse do atributo year
 	 * @param lineJson
-	 * @return value do atributo startYear que representa o ano da série
+	 * @return <code>string</code> com value do atributo startYear que representa o ano da série
 	 */
 	private String parseYear(String lineJson) {
 
@@ -92,7 +92,7 @@ public class MarvelJsonParser implements JsonParser {
 	/**
 	 * Método responsável por realizar o parse do atributo rating
 	 * @param lineJson
-	 * @return value do atributo rating que representa a avaliação da série
+	 * @return <code>string</code> com value do atributo rating que representa a avaliação da série
 	 */
 	private String parseRating(String lineJson) {
 
@@ -108,7 +108,7 @@ public class MarvelJsonParser implements JsonParser {
 	 * Método responsável por realizar parse de atributos das séries
 	 * @param lineJson
 	 * @param attribute
-	 * @return value do atributo informado na assinatura do método
+	 * @return <code>string</code> com value do atributo informado na assinatura do método
 	 */
 	private String parseAttribute(String lineJson, String attribute) {
 
@@ -125,7 +125,7 @@ public class MarvelJsonParser implements JsonParser {
 	/**
 	 * Método responsável por realizar o parse do json recebido da requisição feita à API da Marvel
 	 * @param json
-	 * @return array de string com o json após parse
+	 * @return array de <code>string</code> com o json após parse
 	 */
 	private String[] parseJson(String json) {
 
