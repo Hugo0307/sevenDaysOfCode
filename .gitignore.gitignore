@@ -2,6 +2,7 @@ build/
 /build/
 bin/
 /bin/
+utils/
 *.war
 *.ear
 *.class
