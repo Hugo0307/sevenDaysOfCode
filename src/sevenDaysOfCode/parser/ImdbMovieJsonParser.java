@@ -38,10 +38,10 @@ public class ImdbMovieJsonParser implements JsonParser {
 		int cont = 0;
 		while (cont < parseJson().length) {
 			movies.add(new Movie(
-					newListAtribute(parseJson(), "title").get(cont), 
-					newListAtribute(parseJson(), "image").get(cont), 
-					newListAtribute(parseJson(), "year").get(cont),
-					newListAtribute(parseJson(), "imDbRating").get(cont)
+					newValueAttributeList(parseJson(), "title").get(cont), 
+					newValueAttributeList(parseJson(), "image").get(cont), 
+					newValueAttributeList(parseJson(), "year").get(cont),
+					newValueAttributeList(parseJson(), "imDbRating").get(cont)
 					));
 			cont++;
 		}
@@ -54,19 +54,19 @@ public class ImdbMovieJsonParser implements JsonParser {
 	 * @param keyAttribute o nome do atributo.
 	 * @return lista de <code>string</code> de values do atributo chave passado como parâmetro.
 	 */
-	private List<String> newListAtribute(String[] jsonArray, String keyAttribute) {
+	private List<String> newValueAttributeList(String[] jsonArray, String keyAttribute) {
 
-		List<String> listValues = new ArrayList<>();
+		List<String> valueAttributeList = new ArrayList<>();
 
 		for (int i = 0; i < jsonArray.length; i++) {
-			int lastIndexkey = jsonArray[i].indexOf(keyAttribute);
-			int indexTwoPoints = jsonArray[i].indexOf(":", lastIndexkey);
-			int indexStartValue = indexTwoPoints + 2;
-			int indexQuotes = jsonArray[i].indexOf("\"", indexStartValue);
-			String valueAttribute = jsonArray[i].substring(indexStartValue, indexQuotes);
-			listValues.add(valueAttribute);
+			int lastIndexKey = jsonArray[i].indexOf(keyAttribute);
+			int indexTwoPoints = jsonArray[i].indexOf(":", lastIndexKey);
+			int indexValueBegin = indexTwoPoints + 2;
+			int indexQuotes = jsonArray[i].indexOf("\"", indexValueBegin);
+			String valueAttribute = jsonArray[i].substring(indexValueBegin, indexQuotes);
+			valueAttributeList.add(valueAttribute);
 		}
-		return listValues;
+		return valueAttributeList;
 	}
 	
 	/**

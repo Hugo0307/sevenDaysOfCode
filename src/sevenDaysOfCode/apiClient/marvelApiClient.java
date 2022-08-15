@@ -37,11 +37,10 @@ public class marvelApiClient implements APIClient{
 			response = HttpClient.newHttpClient()
 					.send(httpRequest, HttpResponse.BodyHandlers.ofString());
 			
-		} catch (IOException e) {
+		} catch (InterruptedException | IOException e) {
 			e.printStackTrace();
-		} catch (InterruptedException e) {
-			e.printStackTrace();
-		}
+		} 
+		
 		return response.body();
 	}
 
