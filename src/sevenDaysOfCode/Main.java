@@ -44,10 +44,10 @@ public class Main {
 		PrintWriter writer = new PrintWriter("content.html");
 		new HtmlGenerator(writer).generate(movieList);
 		
-		Desktop desktop = Desktop.getDesktop();
-		
 		if(Desktop.isDesktopSupported())
 			try {
+				Desktop desktop = Desktop.getDesktop();
+				
 				desktop.browse(new URI("content.html"));	//abrindo o html gerado com java no navegador padrão
 			} catch (IOException | URISyntaxException e) {
 				e.printStackTrace();
