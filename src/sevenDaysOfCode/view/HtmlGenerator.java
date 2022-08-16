@@ -47,7 +47,14 @@ public class HtmlGenerator {
 				</div>
 			</div>
 			""";
-			printWriter.println(String.format(divTemplate, content.title(), content.urlImage(), content.title(), content.rating(), content.year()));
+			printWriter.println(String.format(
+					divTemplate, 
+					content.title(), 
+					content.urlImage(), 
+					content.title(), 
+					content.rating(), 
+					content.year()
+					));
 		}
 				
 		printWriter.println(

@@ -1,6 +1,7 @@
 package sevenDaysOfCode;
 
 import java.awt.Desktop;
+import java.io.FileNotFoundException;
 import java.io.IOException;
 import java.io.PrintWriter;
 import java.net.URI;
@@ -26,51 +27,86 @@ public class Main {
 		
 		List<? extends Content> movieList = new ImdbMovieJsonParser(json).parse();
 		
-		movieList.stream()
-			.filter(m -> m.title().startsWith("R"))
-			.forEach(t -> System.out.println(t.title()));
+		showContentByOrderInsertion(movieList);
 		
-//		System.out.println("===== IMDB - Ordenação de inserção =====");
-//		movieList.forEach(System.out::println);
+		showContentByInitialLetter(movieList, "R");
 		
-		//Collections.sort(movieList);
-		//Collections.sort(movieList, Comparator.comparing(Content::title));
-		//Collections.sort(movieList, Comparator.comparing(Content::year));
-		Collections.sort(movieList, Comparator.comparing(c -> c.year()));
+		showContentByTitleOrder(movieList);
 		
-//		System.out.println("===== IMDB - Ordenação natural =====");
-//		movieList.forEach(System.out::println);
+		showContentByYearOrder(movieList);
 		
+		generateHtmlFileWithListContent(movieList);
+		
+		openBrowserWithContentHtml("content.html");
+		
+		/* MARVEL */
+		String jsonMarvelString = new marvelApiClient().getBody();
+		
+		List<? extends Content> seriesList = new MarvelJsonParser(jsonMarvelString).parse();
+		
+		showContentByOrderInsertion(seriesList);
+
+		showContentByInitialLetter(seriesList, "F");
+		
+		showContentByTitleOrder(seriesList);
+		
+		showContentByYearOrder(seriesList);
+		
+		generateHtmlFileWithListContent(seriesList);
+		
+		openBrowserWithContentHtml("content.html");
+		
+	}
+
+	private static void generateHtmlFileWithListContent(List<? extends Content> movieList)
+			throws FileNotFoundException {
 		PrintWriter writer = new PrintWriter("content.html");
-		new HtmlGenerator(writer).generate(movieList);
+		new HtmlGenerator(writer).generate(movieList);		
+		writer.close();
+	}
+
+	private static void openBrowserWithContentHtml(String htmlFileName) {
 		
 		if(Desktop.isDesktopSupported())
 			try {
 				Desktop desktop = Desktop.getDesktop();
 				
-				desktop.browse(new URI("content.html"));	//abrindo o html gerado com java no navegador padrão
+				desktop.browse(new URI(htmlFileName));	//abrindo o html gerado com java no navegador padrï¿½o
 			} catch (IOException | URISyntaxException e) {
 				e.printStackTrace();
 			}
+	}
+	
+	private static void showContentByTitleOrder(List<? extends Content> contentList) {
 		
-		writer.close();
+		System.out.println("===== OrdenaÃ§Ã£o natural por TÃ­tulo =====");
+		Collections.sort(contentList, Comparator.comparing(Content::title));
+		contentList.forEach(System.out::println);
+		System.out.println();
+	}
+
+	private static void showContentByYearOrder(List<? extends Content> contentList) {
+
+		System.out.println("===== OrdenaÃ§Ã£o natural por Ano =====");
+		Collections.sort(contentList, Comparator.comparing(c -> c.year()));
+		contentList.forEach(System.out::println);
+		System.out.println();
+	}
+
+	private static void showContentByOrderInsertion(List<? extends Content> contentList) {
 		
-		/* MARVEL */
-//		String jsonMarvelString = new marvelApiClient().getBody();
-//		
-//		List<? extends Content> seriesList = new MarvelJsonParser(jsonMarvelString).parse();
-//		
-//		System.out.println("===== Series da Marvel - Ordenação de inserção =====");
-//		seriesList.forEach(System.out::println);
-//		System.out.println();
-//		
-//		Collections.sort(seriesList);
-//		Collections.sort(seriesList, Comparator.comparing(Content::title));
-//		Collections.sort(seriesList, Comparator.comparing(Content::year));
-//		
-//		System.out.println("===== Series da Marvel - Ordenação natural =====");
-//		seriesList.forEach(System.out::println);
+		System.out.println("===== OrdenaÃ§Ã£o de inserÃ§Ã£o =====");
+		contentList.forEach(System.out::println);
+		System.out.println();
+	}
+
+	private static void showContentByInitialLetter(List<? extends Content> contentList, String initialLetter) {
 		
+		System.out.println("===== OrdenaÃ§Ã£o por letra inical do tÃ­tulo =====");
+		contentList.stream()
+			.filter(m -> m.title().startsWith(initialLetter))
+			.forEach(t -> System.out.println(t.title()));
+		System.out.println();
 	}
 	
 }
